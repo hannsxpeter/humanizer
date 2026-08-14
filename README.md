@@ -1,6 +1,6 @@
 # humanizer
 
-![version](https://img.shields.io/badge/version-1.1.1-blue)
+![version](https://img.shields.io/badge/version-1.2.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![type](https://img.shields.io/badge/type-pure--prompt%20skill-purple)
 ![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
@@ -9,13 +9,14 @@
 
 A standalone, pure-prompt skill that rewrites AI-sounding prose so it reads as
 genuinely human, and rewrites in a specific writer's voice when a sample or
-style profile is available. It is just instructions: `SKILL.md` plus a few
+style profile is available. It also conservatively cleans suspicious invisible
+Unicode in supplied prose. It is just instructions: `SKILL.md` plus a few
 reference files. No scripts, no dependencies, no network access.
 
 ## Where this comes from
 
 This skill was built from the voice-preservation logic that powers
-[Scriveno](https://github.com/aihxp/scriveno) (formerly Scriven), an
+[Scriveno](https://github.com/hannsxpeter/scriveno) (formerly Scriven), an
 AI-native longform writing system whose core promise is narrow and
 high-stakes: drafted prose should sound like the writer, not like AI.
 Scriveno is a spec-driven creative-writing, publishing, and translation
@@ -31,7 +32,7 @@ standalone, tool-agnostic skill: the same de-slop, restraint, and
 voice-matching philosophy Scriveno applies across a full manuscript, usable
 on any prose in any supported tool. If you want the whole writing,
 publishing, and translation pipeline rather than just this de-slop layer, see
-Scriveno: https://github.com/aihxp/scriveno (npm package: `scriveno-cli`).
+Scriveno: https://github.com/hannsxpeter/scriveno (npm package: `scriveno-cli`).
 
 ## Why this one is different
 
@@ -48,6 +49,10 @@ Scriveno: https://github.com/aihxp/scriveno (npm package: `scriveno-cli`).
   neutral prose.
 - **Opt-in edge.** A stance mode adds opinion and punch on explicit request,
   hard-blocked from inventing content.
+- **Conservative text hygiene.** It removes high-confidence invisible
+  formatting residue while preserving script joiners, direction controls,
+  display selectors, locale spacing, code, and exact-value spans when they are
+  load-bearing.
 
 ## What it removes
 
@@ -56,6 +61,22 @@ restraint notes: inflated significance, promotional and evasive language,
 formulaic structure, lexical tics, syntactic tics, and formatting artifacts,
 including chat-UI contamination, debunking-pose headings, and diff-anchored
 writing.
+
+## Prompt-only text hygiene
+
+Every run now includes a text-hygiene preflight. When the host exposes the
+characters, the skill can remove stray zero-width spaces, soft formatting
+controls, unexpected direction controls, free-floating tag characters, and
+copy-paste spacing residue. It reports what changed and preserves ambiguous or
+load-bearing Unicode instead of normalizing it blindly.
+
+This feature adapts the prompt-compatible text-layer ideas from
+[watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover).
+That project also offers scripts for C2PA, EXIF, XMP, document metadata, and
+media processing. Humanizer remains pure prompt, so those container and media
+features are deliberately outside its scope. A prose rewrite may disturb
+statistical token patterns as a side effect, but this skill cannot verify or
+promise their removal.
 
 ## Supported tools
 
@@ -93,7 +114,8 @@ For voice-matched output, do one of:
   `STYLE-GUIDE.md` in the project; it is discovered automatically.
 
 Every run returns the rewritten text plus a short report: what changed, what
-was deliberately left alone, a meaning check, and a next step.
+was deliberately left alone, a text-hygiene status, a meaning check, and a
+next step.
 
 ## Scope
 
@@ -101,7 +123,9 @@ This skill improves prose quality and authentic voice. It is not designed or
 tuned to defeat plagiarism checkers or AI-detection systems, and it names no
 detector. Requests framed as passing AI work off as a person's own for a
 graded or contractual assessment are reframed toward the quality-and-voice
-use the skill actually serves.
+use the skill actually serves. Text hygiene applies only to characters in the
+supplied prose. It does not inspect or strip file-container provenance or
+media marks.
 
 ## Layout
 
@@ -118,7 +142,8 @@ CONVENTIONS.md                  Aider conventions
 references/tell-patterns.md     the 32-pattern catalog (read in Pass 2)
 references/do-not-flag.md       false positives, human markers, stop conditions
 references/voice-matching.md    voice discovery and application
-references/examples.md          four worked end-to-end runs
+references/text-hygiene.md      conservative invisible-Unicode cleanup
+references/examples.md          five worked end-to-end runs
 evals/evals.json                verification cases (not part of the runtime skill)
 ```
 

@@ -1,8 +1,9 @@
 # Worked Examples
 
-Read this when you are unsure what good output looks like. Four full runs:
-generic de-slop, voice-first, restraint, and stance mode. Each shows the input, brief
-pass-by-pass reasoning, and the final deliverable in the exact output contract.
+Read this when you are unsure what good output looks like. Five full runs:
+generic de-slop, voice-first, restraint, stance mode, and text hygiene. Each
+shows the input, brief pass-by-pass reasoning, and the final deliverable in the
+exact output contract.
 
 The third example is the most important. It shows the skill correctly doing
 almost nothing to prose that only looks sloppy. If you can do Example 3, you
@@ -43,6 +44,8 @@ preserve (there was none); say so in the meaning check.
 
 ### Humanized draft
 Voice: generic
+Density: high -> full pass
+Text hygiene: no suspicious characters visible
 
 > Customer feedback is the cheapest way to find out what is wrong with a
 > product before it costs you. Read it. The companies that act on it tend to
@@ -112,6 +115,8 @@ Keep the skepticism dry, not a parody of world-weariness. No invented facts.
 
 ### Humanized draft
 Voice: from VOICE.md
+Density: high -> full pass
+Text hygiene: no suspicious characters visible
 
 > Customer feedback is just users telling you what is broken. That is all it
 > is. You can read it now, for free, or you can pay a consultant to tell you
@@ -181,6 +186,8 @@ failure. Output minimal edits (none needed) and explain the restraint.
 
 ### Humanized draft
 Voice: generic
+Density: low -> light pass
+Text hygiene: no suspicious characters visible
 
 > I have taught this seminar for nineteen years, and the pattern never
 > changes: the students who struggle most in October are, almost without
@@ -237,6 +244,8 @@ event was smuggled in as "candor."
 
 ### Humanized draft
 Voice: generic + stance
+Density: low -> light pass
+Text hygiene: no suspicious characters visible
 
 > Seven months, twelve engineers, one monolith taken apart and put back
 > together as microservices. January to July 2024. The headline number is the
@@ -271,6 +280,49 @@ No file path was given. Stopping here.
 
 ---
 
+## Example 5: Text hygiene without language damage
+
+**User:** "clean up this paragraph; I think copy-paste added hidden
+characters, but keep the Persian word exact"
+
+**Input, with invisible characters annotated for the example:**
+> Customer[U+200B] feedback[U+00A0]helps. The Persian word
+> می[U+200C]روم must stay exact.
+
+**Step 0:** No voice file or sample. Generic mode. **Step 0c:** no prose tells,
+so density is low and the wording should remain untouched. **Step 0d:** the
+U+200B inside ordinary Latin prose has no semantic role, and the U+00A0 has no
+layout role here. Remove the first and normalize the second. The U+200C inside
+the Persian word is a load-bearing script joiner, so preserve it.
+
+**Passes 2 and 3:** No language edit is needed. Verify that only formatting
+changed and that the Persian word still contains its joiner.
+
+### Humanized draft
+Voice: generic
+Density: low -> light pass
+Text hygiene: cleaned: 1 zero-width character, 1 space normalized
+
+> Customer feedback helps. The Persian word می‌روم must stay exact.
+
+### What changed
+- Text hygiene: removed one U+200B zero-width space and normalized one U+00A0
+  no-break space that had no layout role.
+
+### Deliberately left alone
+- The wording, because no AI-writing tells were present.
+- The U+200C joiner inside `می‌روم`, because it is part of the word's intended
+  spelling and display.
+
+### Meaning check
+No facts, claims, or wording changed. The cleanup affected formatting only,
+and the load-bearing Persian joiner was preserved.
+
+### Next step
+No file path was given. Stopping here.
+
+---
+
 ## What these examples teach
 
 1. Generic mode de-slops without inventing a persona or fake specifics.
@@ -282,3 +334,5 @@ No file path was given. Stopping here.
 4. Stance mode (opt-in) adds attitude, not content. An opinion about a stated
    fact is the goal; an invented cause or event behind that fact is the exact
    failure the mode is designed to prevent.
+5. Text hygiene removes only high-confidence residue. A hidden character that
+   carries language or display meaning stays.
