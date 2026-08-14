@@ -1,23 +1,20 @@
 ---
 name: humanizer
 description: >-
-  De-slop AI-sounding prose and rewrite a draft so it reads as genuinely
-  human, and when a writer's voice sample or style profile is available,
-  rewrite it in that author's actual voice instead of generic neutral prose.
-  Removes the recurring generative-AI tells: inflated significance,
-  delve/landscape/tapestry vocabulary, rule-of-three padding, em dash overuse,
-  negative parallelisms, sycophantic hedging, signposting, formulaic
-  conclusions, and listicle scaffolding, while preserving meaning and the
-  markers of real human writing. Use this whenever a user wants to humanize,
-  de-AI, de-slop, or de-robotify text; to fix writing that sounds like ChatGPT
-  or a machine; to make a draft sound like them or like a named author; or to
-  edit prose for authentic voice and rhythm. Reach for it even when the user
-  only says the text feels off, sounds corporate, reads like AI, or is too
-  generic, without naming this skill or the word humanize.
+  Humanize and de-slop AI-sounding prose while preserving meaning, specific
+  detail, and genuine human quirks. When a voice sample or style profile is
+  available, rewrite in that writer's actual voice. Remove recurring AI tells
+  such as inflated significance, stock vocabulary, uniform rhythm, excessive
+  hedging, formulaic structure, and formatting artifacts. Also clean
+  suspicious invisible Unicode and copy-paste residue conservatively, without
+  treating them as proof of authorship. Use whenever a user wants to humanize,
+  de-AI, de-slop, or de-robotify text; fix prose that sounds corporate,
+  generic, like ChatGPT, or otherwise off; match a draft to a writer or named
+  author; edit for authentic voice and rhythm; or clean zero-width characters,
+  exotic spaces, bidi controls, and similar hidden text residue.
 allowed-tools: Read, Write, Edit, Glob, Grep
-compatibility: claude-code, cursor, codex, antigravity, gemini-cli, pi-coder, opencode, copilot, windsurf, cline, continue, zed, aider
 metadata:
-  version: 1.1.1
+  version: 1.2.0
 ---
 
 # Humanizer
@@ -27,6 +24,11 @@ work of a person. When a writer's voice is available, make it read as the work
 of *that* person. The goal is prose a careful human reader would not flag,
 with its meaning and its human texture intact. The goal is not to beat any
 particular detector, and this skill names and targets none.
+
+The workflow also includes conservative text hygiene. It can remove
+suspicious invisible Unicode and normalize copy-paste spacing in the prose it
+rewrites, while preserving characters that carry real linguistic or display
+meaning. This is not file-provenance or media-watermark tooling.
 
 ## When to use this
 
@@ -38,6 +40,10 @@ the word "humanize." It also pairs well after any drafting step where the
 output came out machine-smooth. By default the rewrite stays measured and
 faithful; if the user explicitly asks for more voice, edge, or opinion, turn
 on Stance mode (see below).
+
+Use the text-hygiene part when prose may contain invisible characters,
+zero-width residue, unusual spaces, or direction controls. Treat hygiene as
+format cleanup, never as evidence that a person or model wrote the text.
 
 Do not use it to disguise authorship for an assessment or to defeat a
 plagiarism or AI-detection system. See Scope and intended use below; reframe
@@ -153,6 +159,26 @@ evidence. One exception overrides density: any chat-UI contamination string
 overall density, because its presence is near-certain confirmation rather
 than a weak signal.
 
+## Step 0d: Text hygiene preflight (do this every run)
+
+Inspect the source before rewriting so invisible formatting does not survive
+or get confused with prose style. Read `references/text-hygiene.md` when the
+source contains non-ASCII formatting characters, when the user mentions
+hidden characters or text marks, or when the interface reports suspicious
+codepoints.
+
+Remove only characters whose lack of semantic purpose is clear. Preserve
+script joiners, direction marks needed by multilingual text, variation
+selectors used for display, and non-breaking spaces that carry layout or
+locale meaning. Do not normalize confusable letters automatically. Invisible
+characters do not count toward the density score and do not establish AI
+authorship.
+
+This is a pure-prompt skill, so inspection is limited to characters the host
+preserves and exposes. If exact codepoint inspection is unavailable, say
+`not verifiable in this interface` in the output header. Never report the
+text as universally watermark-free.
+
 ## The multi-pass workflow
 
 Run the passes in order. Voice is generative; de-slopping is subtractive. If
@@ -185,6 +211,11 @@ While you do this, hold or increase sentence-length variance; do not let
 de-slopping homogenize the rhythm. In voice mode, a tell fix that would
 flatten the established voice is the wrong fix; find one that keeps the voice.
 
+Humanization changes word choice and syntax, so it may disrupt statistical
+token patterns as a side effect. That effect is best-effort and unverifiable
+without a public detector and key. Do not intensify a rewrite solely to evade
+a detector, promise that a mark was removed, or call the result undetectable.
+
 ### Pass 3: Self-audit (has veto power over Passes 1 and 2)
 
 Load `references/do-not-flag.md`. Ask two questions and act on both:
@@ -194,6 +225,10 @@ a. If a sharp human read this cold, what one or two things would still tip
 b. Did I overcorrect? Did I strip a specific detail, flatten a genuine quirk,
    change a meaning, or introduce my own uniform rhythm (every fix the same
    shape)? Revert any such damage.
+
+Finally, recheck the rewritten prose using `references/text-hygiene.md`.
+Confirm that suspicious carriers were removed and load-bearing Unicode was
+preserved. Report only changes you could actually verify.
 
 If Pass 3 conflicts with an earlier pass, Pass 3 wins. A clean rewrite that no
 longer sounds like the writer, or that lost a real detail, has failed even if
@@ -236,12 +271,15 @@ structure:
 Voice: [generic | from FILENAME | matched to pasted sample | author: NAME]
        [append " + stance" when stance mode is on, e.g. "generic + stance"]
 Density: [low -> light pass | medium -> standard pass | high -> full pass]
+Text hygiene: [no suspicious characters visible | cleaned: COUNTS AND TYPES |
+               not verifiable in this interface]
 
 [the full rewritten text]
 
 ## What changed
 - [pattern family]: [plain note on what was adjusted and why]
   (group by family; do not list every token; about 8 bullets maximum)
+- [text hygiene]: [include only when characters were removed or normalized]
 
 ## Deliberately left alone
 - [something that looked like a tell but is authentic, and why you kept it]
@@ -249,6 +287,8 @@ Density: [low -> light pass | medium -> standard pass | high -> full pass]
 
 ## Meaning check
 One sentence confirming no facts, numbers, names, claims, or intent changed.
+Confirm that text-hygiene edits changed formatting only and preserved
+load-bearing Unicode.
 Then check soft inference: did you assert any causal, temporal, or
 quantitative link ("most of the time went to X", "because of Y", "this drove
 Z") that the source only implied or did not state? If so, name it here and
@@ -281,6 +321,11 @@ as a person's own for a graded or contractual assessment, do not adopt that
 framing; offer the quality-and-voice improvement instead, which is what this
 skill actually does well.
 
+Text hygiene in this skill is limited to characters present in supplied
+prose. It does not inspect or strip C2PA, EXIF, XMP, PDF or document
+properties, image pixels, audio, video, or provenance outside the text layer.
+Those operations require dedicated tooling. Do not imply they were performed.
+
 ## Reference files
 
 Read these on demand, not upfront:
@@ -291,6 +336,9 @@ Read these on demand, not upfront:
   preserve, LLM idiolects, and the hard stop conditions.
 - `references/voice-matching.md` whenever Step 0 found a voice. How to extract
   and apply a voice, the optional VOICE.md schema, and conflict resolution.
+- `references/text-hygiene.md` during Step 0d and final verification.
+  Suspicious invisible Unicode, load-bearing exceptions, conservative
+  normalization, reporting, and prompt-only scope boundaries.
 - `references/examples.md` when you are unsure what good output looks like.
-  Four full worked runs: generic de-slop, voice-first, a restraint case, and
-  a stance-mode case.
+  Five full worked runs: generic de-slop, voice-first, a restraint case,
+  stance mode, and text hygiene.

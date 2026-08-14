@@ -3,6 +3,26 @@
 All notable changes to this skill are documented here. This project adheres
 to semantic versioning.
 
+## [1.2.0] - 2026-08-14
+
+### Added
+
+- Conservative text-hygiene preflight and final verification for suspicious
+  invisible Unicode, zero-width residue, unusual spaces, bidi controls, tag
+  characters, and variation selectors in supplied prose.
+- `references/text-hygiene.md` with load-bearing Unicode exceptions,
+  prompt-only limitations, and bounded reporting language.
+- Evaluation coverage for removing high-confidence invisible residue while
+  preserving a legitimate script joiner.
+
+### Changed
+
+- The output header now reports text-hygiene status on every run.
+- All tool adapters now route the Step 0d text-hygiene pass consistently.
+- Documented the feature boundary: wording-level rewrites are unverified,
+  while file metadata and media provenance remain outside this pure-prompt
+  skill.
+
 ## [1.1.1] - 2026-05-29
 
 Documentation consistency pass. No change to the skill's method or behavior.
@@ -72,6 +92,7 @@ First stable release.
   `.github/copilot-instructions.md`.
 - Verification eval set (`evals/evals.json`), MIT license.
 
-[1.1.1]: https://github.com/aihxp/humanizer/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/aihxp/humanizer/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/aihxp/humanizer/releases/tag/v1.0.0
+[1.2.0]: https://github.com/hannsxpeter/humanizer/compare/v1.1.1...v1.2.0
+[1.1.1]: https://github.com/hannsxpeter/humanizer/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/hannsxpeter/humanizer/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/hannsxpeter/humanizer/releases/tag/v1.0.0
