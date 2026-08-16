@@ -1,6 +1,6 @@
 # humanizer
 
-![version](https://img.shields.io/badge/version-1.2.0-blue)
+![version](https://img.shields.io/badge/version-1.2.1-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![type](https://img.shields.io/badge/type-pure--prompt%20skill-purple)
 ![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
@@ -77,6 +77,22 @@ media processing. Humanizer remains pure prompt, so those container and media
 features are deliberately outside its scope. A prose rewrite may disturb
 statistical token patterns as a side effect, but this skill cannot verify or
 promise their removal.
+
+### Feature adoption matrix
+
+Humanizer borrows selected ideas, not the complete `watermarks-remover`
+toolchain:
+
+| Source capability | Humanizer support | Boundary |
+|---|---|---|
+| Invisible Unicode and unusual-space cleanup | Adapted | Prompt-level and limited to characters the host exposes |
+| Statistical token-pattern disruption | Partial | The quality rewrite changes wording and syntax, but never promises removal or detector evasion |
+| C2PA, EXIF, XMP, PDF, and document metadata | Not included | Requires deterministic file-processing tools |
+| Pixel, image, audio, and video marks | Not included | Requires media tooling or external models |
+| Directory and website provenance audits | Not included | Outside a prose-rewriting skill |
+
+This boundary keeps Humanizer dependency-free and prevents a prose rewrite
+from being misreported as a full provenance scrub.
 
 ## Supported tools
 

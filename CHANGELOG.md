@@ -3,6 +3,21 @@
 All notable changes to this skill are documented here. This project adheres
 to semantic versioning.
 
+## [1.2.1] - 2026-08-15
+
+Documentation-only patch. No change to the humanization or text-hygiene
+workflow.
+
+### Changed
+
+- Added an explicit feature adoption matrix to `README.md` showing which
+  `watermarks-remover` concepts Humanizer adapts, partially overlaps with, or
+  excludes.
+- Clarified that Humanizer includes prompt-level Unicode hygiene and an
+  existing quality rewrite that may disturb statistical token patterns, but
+  does not include file metadata, media processing, or audit tooling.
+- Bumped the documented skill version to 1.2.1.
+
 ## [1.2.0] - 2026-08-14
 
 ### Added
@@ -92,6 +107,7 @@ First stable release.
   `.github/copilot-instructions.md`.
 - Verification eval set (`evals/evals.json`), MIT license.
 
+[1.2.1]: https://github.com/hannsxpeter/humanizer/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/hannsxpeter/humanizer/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/hannsxpeter/humanizer/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/hannsxpeter/humanizer/compare/v1.0.0...v1.1.0

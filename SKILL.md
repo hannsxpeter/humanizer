@@ -14,7 +14,7 @@ description: >-
   exotic spaces, bidi controls, and similar hidden text residue.
 allowed-tools: Read, Write, Edit, Glob, Grep
 metadata:
-  version: 1.2.0
+  version: 1.2.1
 ---
 
 # Humanizer
