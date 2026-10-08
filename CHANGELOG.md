@@ -15,7 +15,8 @@ to semantic versioning.
 - Eval 7 (stance mode must not invent a cause) and eval 8 (one chat-UI
   artifact in human-first text still gets a light pass). Eval 2 now also
   fails a voice rewrite that invents facts.
-- A low-confidence suffix for the output header's Voice line.
+- A low-confidence suffix for the output header's Voice line, demonstrated
+  in Example 2.
 - `license: MIT` in the `SKILL.md` frontmatter.
 - README install commands for native Agent Skills folders, plus Evals and
   Contributing sections.
@@ -27,7 +28,8 @@ to semantic versioning.
 - Stance mode now states that it applies on a light density pass, while
   density still scopes tell removal.
 - `references/text-hygiene.md` is loaded only when Step 0d finds something
-  or prose in a file needs the exact search.
+  or prose in a file needs the exact search, and Step 0d reserves "not
+  verifiable" for when the characters can be neither seen nor searched.
 - `allowed-tools` uses the space-separated form from the Agent Skills spec,
   which Claude Code also accepts.
 - The README tool table matches current tool behavior: Windsurf is now Devin
@@ -46,9 +48,12 @@ to semantic versioning.
 ### Fixed
 
 - Worked Examples 1 and 2 invented facts (quarterly surveys, team sizes, a
-  retention comparison) while their meaning checks said nothing was invented,
-  and Example 2 broke its own VOICE.md. Every claim in both drafts now traces
-  to the source. Example 4 no longer implies that costs are still high or
+  retention comparison) while their meaning checks said nothing was invented.
+  Example 2 also broke its own VOICE.md and listed its own insertions as
+  "Deliberately left alone." Every claim in both drafts now traces to the
+  source, and both meaning checks name what was cut. Example 4 keeps the
+  source's "temporarily" in view and questions it without asserting that
+  costs are still high, drops a stock negative parallelism, and no longer
   claims to remove tells the source never had.
 - `references/voice-matching.md` ranked a discovered VOICE.md above a named
   author, contradicting `SKILL.md`. Explicit input now wins in both.

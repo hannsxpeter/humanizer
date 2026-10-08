@@ -179,8 +179,8 @@ authorship.
 
 This is a pure-prompt skill, so inspection is limited to characters the host
 preserves and exposes. When the prose is in a file and a search tool is
-available, run the codepoint search in `references/text-hygiene.md` for an
-exact check. If exact codepoint inspection is unavailable, say
+available, also run the codepoint search in `references/text-hygiene.md`. If
+you can neither see the characters directly nor search a file, say
 `not verifiable in this interface` in the output header. Never report the
 text as universally watermark-free.
 

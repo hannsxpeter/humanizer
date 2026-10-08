@@ -1,10 +1,10 @@
 # Text Hygiene
 
-Read this during Step 0d and the final verification. Its job is to remove
-invisible formatting residue without damaging real language, typography, or
-meaning. This is a conservative prompt-level adaptation of the text-layer
-ideas in `guillaumemeyer/watermarks-remover`; it does not bundle or reproduce
-that project's scripts.
+Read this when SKILL.md Step 0d calls for it, and for the final check after a
+cleanup. Its job is to remove invisible formatting residue without damaging
+real language, typography, or meaning. This is a conservative prompt-level
+adaptation of the text-layer ideas in `guillaumemeyer/watermarks-remover`; it
+does not bundle or reproduce that project's scripts.
 
 ## Operating rule
 

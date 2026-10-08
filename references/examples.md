@@ -72,11 +72,11 @@ Text hygiene: no suspicious characters visible
   the rewrite stays general instead of supplying numbers or anecdotes.
 
 ### Meaning check
-The four claims survive: feedback matters to product success, attentive
+The source's claims survive: feedback matters to product success, attentive
 companies are better placed to grow and keep customers, collecting feedback
 well signals care for quality, and this holds at any size. "Drive engagement"
-was folded into keeping customers rather than restated. No facts, numbers, or
-examples were added.
+was folded into keeping customers, and the "exciting opportunity" framing was
+cut as uplift. No facts, numbers, or examples were added.
 
 ### Next step
 No file path was given. Stopping here.
@@ -118,14 +118,13 @@ actually helped was boring: we deleted half the backlog and stopped lying
 about dates.
 ```
 
-**Step 0:** Profile found. Voice mode. Read voice-matching.md.
+**Step 0:** Profile found. Voice mode. Read voice-matching.md. The Sample is
+only 56 words, so the header flags low confidence (voice-matching.md Part 4).
 
 **Pass 1 (voice injection):** Re-cast toward the profile first: short blunt
 sentences around one long contrast sentence, a rhetorical question answered at
-once, an "And" or "But" opener, a skeptical, tired stance, no tricolons, no
-uplift. The bullets also ban adverbs, yet the profile's own Sample uses "just"
-and "actually." voice-matching.md says the Sample beats the self-description,
-so a stray "just" would be in voice. This rewrite did not need one.
+once, an "And" or "But" opener, a skeptical, tired stance, no adverbs, no
+tricolons, no uplift.
 
 **Pass 2 (tell removal, within the voice):** Same catalog flags as Example 1,
 but the fixes must stay inside this voice. The generic rule says vary rhythm;
@@ -134,13 +133,14 @@ profile over the generic default.
 
 **Pass 3 (self-audit):** Tells gone? Yes. Voice intact and not a caricature?
 Keep the skepticism dry, not a parody of world-weariness. Check the avoid-list
-once more: no "leverage," no tricolon, no uplift. Then check faithfulness. A
+once more: no adverbs, no "leverage," no tricolon, no uplift. Then check
+faithfulness. A
 skeptical voice invites invented asides (a consultant, a slide deck, a survey
 nobody reads); none of them are in the source, so none go in. The stance stays
 a reaction to what the source says.
 
 ### Humanized draft
-Voice: from VOICE.md
+Voice: from VOICE.md, low-confidence: 56-word sample
 Density: high -> full pass
 Text hygiene: no suspicious characters visible
 
@@ -152,8 +152,8 @@ Text hygiene: no suspicious characters visible
 
 ### What changed
 - Voice: re-cast per VOICE.md into short blunt sentences around one long one,
-  with a rhetorical question answered at once, a "But" opener, and a tired,
-  been-here-before stance.
+  with a rhetorical question answered at once, a "But" opener, and a dry
+  "None of this is news" for the tired, been-here-before stance.
 - Lexical tics: removed the landscape / delve / tapestry / robust cluster and
   "leverage" (explicitly on the avoid-list).
 - Formulaic structure: the growth / loyalty / engagement triad is now a pair
@@ -163,17 +163,18 @@ Text hygiene: no suspicious characters visible
   to note," and "Moreover" are gone.
 
 ### Deliberately left alone
-- The rhetorical question and the dry "None of this is news." Both could pass
-  for tells, but the profile asks for question-then-answer and a tired,
-  skeptical stance; here they are voice.
+- The source's sincere claim that the effort of hearing users out shows care
+  for quality. A skeptical voice could have undercut it, but the profile sets
+  the tone, not the content, so the claim stays, said plainly.
 
 ### Meaning check
-The four claims survive: feedback matters to a product's success, companies
-that listen are better placed to grow and keep users, the effort of hearing
-users out signals care for quality, and this holds at any size. "Drive
-engagement" was folded into keeping users. "None of this is news" is the
-profile's stance toward those claims, not a new claim about the world. No
-facts, numbers, or examples were added.
+The source's claims survive: feedback matters to a product's success,
+companies that listen are better placed to grow and keep users, the effort of
+hearing users out signals care for quality, and this holds at any size.
+"Drive engagement" was folded into keeping users, and the "exciting
+opportunity" framing was cut as uplift, which the profile forbids. "None of
+this is news" is an opinion added by the profile's tired stance; it judges
+the claims without changing them. No facts, numbers, or examples were added.
 
 ### Next step
 The user pointed to a style file, not a target file for the draft, so there
@@ -269,9 +270,10 @@ for edge and "not so neutral", so stance mode is on. Generic + stance.
 **Step 0c:** no dead-giveaway tells, so density is low. The light pass limits
 tell removal; the requested stance still reshapes register and rhythm.
 
-**Pass 2 (tell removal, with stance):** de-slop normally, but the narrator now
-has a point of view about the stated facts. The danger to watch: stance must
-stay a reaction to what is there. The source says costs rose 18%; it does not
+**Pass 2 (tell removal, with stance):** the source has no machine tells to
+remove, so the work here is the stance itself: the narrator now has a point of
+view about the stated facts. The danger to watch: stance must stay a reaction
+to what is there. The source says costs rose 18%; it does not
 say why. An opinion about the 18% is allowed; an invented reason for it is
 not.
 
@@ -285,32 +287,34 @@ Density: low -> light pass
 Text hygiene: no suspicious characters visible
 
 > Seven months, twelve engineers, one monolith taken apart and put back
-> together as microservices. January to July 2024. The headline number is the
-> one worth caring about: deploys went from 45 minutes to 6 once we were on
-> Kubernetes. That is not a tuning win, that is a different way of working.
-> The bill has a catch. Infrastructure ran 18% higher during the move, and
-> "temporarily" is carrying a lot of weight in that sentence.
+> together as microservices. January to July 2024. The deploy number is the
+> good part: 45 minutes down to 6 once we were on Kubernetes. That is a
+> different way of working. The bill has a catch. Infrastructure costs rose
+> 18%, "temporarily," during the move, and that word is doing a lot of work.
 
 ### What changed
-- Stance: added a clear point of view (the deploy number is what matters; the
-  cost framing deserves skepticism), per the user's explicit request for edge.
-- Rhythm and register: the flat report sentences became fragments, a short
-  aside, and a longer close. The source had no machine tells to remove, so
-  every change comes from the request for edge.
+- Stance: added a clear point of view (the deploy number is the good part;
+  the word "temporarily" deserves skepticism), per the user's explicit request
+  for edge.
+- Rhythm and register: the flat report sentences became fragments, two short
+  judgments, and a longer close. The source had no machine tells to remove,
+  so every change comes from the request for edge.
 
 ### Deliberately left alone
 - Every figure: seven months, Jan-Jul 2024, twelve engineers, 45 to 6
   minutes, 18%, Kubernetes. Stance never touches the numbers.
+- The word "temporarily." The stance questions it, but it is the source's
+  claim, so it stays in the sentence.
 
 ### Meaning check
-No facts, numbers, names, or claims changed. On stance discipline: the line
-"that is a different way of working" is a judgment about the stated 45-to-6
-result, not a new fact. The skepticism about "temporarily" is an opinion about
-the source's own word, not an invented cost cause; I specifically did not
-write anything like "costs rose because we ran both systems in parallel,"
-since the source never states why costs rose. It also stops short of
-implying the costs are still high, which the source does not say either. No
-invented mechanism, event, person, or experience.
+No facts, numbers, names, or claims changed. On stance discipline: "a
+different way of working" is a judgment about the stated 45-to-6 result, not
+a new fact. The quotation marks around "temporarily" question the source's
+own word without asserting that costs are still high, which the source does
+not say. Nor is there an invented cost cause; I specifically did not write
+anything like "costs rose because we ran both systems in parallel," since the
+source never states why costs rose. No invented mechanism, event, person, or
+experience.
 
 ### Next step
 No file path was given. Stopping here.

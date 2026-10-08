@@ -34,8 +34,9 @@ git clone https://github.com/hannsxpeter/humanizer ~/.agents/skills/humanizer
 
 To scope the skill to one project, clone it into `.claude/skills/humanizer` or
 `.agents/skills/humanizer` inside that project; Google Antigravity reads the
-project form. Update with `git pull` in the clone. Tools without skill
-support, and setups that prefer rules files, use an adapter instead; see
+project form. Cline uses its own folder, `~/.cline/skills/humanizer`. Update
+with `git pull` in the clone. Tools without skill support, and setups that
+prefer rules files, use an adapter instead; see
 [Supported tools](#supported-tools).
 
 ## Usage
@@ -94,9 +95,10 @@ Every run includes a text-hygiene preflight. When the host exposes the
 characters, the skill can remove stray zero-width spaces, soft formatting
 controls, unexpected direction controls, free-floating tag characters, and
 copy-paste spacing residue. When the prose is in a file, one regex search
-finds every suspicious codepoint exactly. It reports what changed and keeps
-ambiguous or load-bearing Unicode, such as the joiners some scripts need for
-correct spelling, instead of normalizing it blindly.
+locates every invisible or unusual-space codepoint in the hygiene table;
+confusable letters still need a reading check. It reports what changed and
+keeps ambiguous or load-bearing Unicode, such as the joiners some scripts need
+for correct spelling, instead of normalizing it blindly.
 
 This feature adapts the prompt-compatible text-layer ideas from
 [watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover).
@@ -136,7 +138,7 @@ and `references/`, so the workflow is identical across tools.
 | Claude Code | `AGENTS.md` when no `CLAUDE.md` exists (recent versions) | `~/.claude/skills/` |
 | Codex | `AGENTS.md` | `~/.agents/skills/` |
 | Cursor | `.cursor/rules/humanizer.mdc` (applied when relevant) and `AGENTS.md` | `~/.agents/skills/`, `~/.claude/skills/` |
-| GitHub Copilot | `.github/copilot-instructions.md`; also `AGENTS.md` in VS Code, the CLI, and the cloud agent | `~/.agents/skills/`, `.github/skills/` |
+| GitHub Copilot | `.github/copilot-instructions.md`; also `AGENTS.md` in VS Code, the CLI, and the cloud agent | `~/.agents/skills/`, `.github/skills/`; in VS Code also `~/.claude/skills/` |
 | Gemini CLI | `GEMINI.md` | `~/.agents/skills/`, `~/.gemini/skills/` |
 | Google Antigravity | `AGENTS.md` and `GEMINI.md` | `.agents/skills/` in the project |
 | OpenCode | `AGENTS.md` | `~/.agents/skills/`, `~/.claude/skills/` |

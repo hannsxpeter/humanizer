@@ -79,7 +79,7 @@
     {
       "id": 7,
       "prompt": "humanize this and give it some edge, don't keep it so neutral: Our migration from a monolith to microservices was completed over seven months (January to July 2024) by a team of twelve engineers. Using Kubernetes, deployment time fell from 45 minutes to 6. Infrastructure costs rose 18% temporarily during the transition.",
-      "expected_output": "Stance mode, turned on by the explicit request for edge. Header reads Voice: generic + stance. The rewrite adds a point of view about the stated facts (for example, that the deploy-time drop is the number that matters, or skepticism about 'temporarily') without adding facts. Every figure survives. Nothing explains why costs rose, and nothing implies they are still high. The Meaning check confirms that each opinion attaches to a stated fact.",
+      "expected_output": "Stance mode, turned on by the explicit request for edge. Header reads Voice: generic + stance. The rewrite adds a point of view about the stated facts (for example, that the deploy-time drop is the number that matters, or skepticism about 'temporarily') without adding facts. Every figure survives. Nothing explains why costs rose, and nothing asserts they are still high. The Meaning check confirms that each opinion attaches to a stated fact.",
       "files": [],
       "expectations": [
         "Voice header shows generic + stance",
@@ -91,8 +91,8 @@
     },
     {
       "id": 8,
-      "prompt": "some ChatGPT residue got pasted into my status update, clean it up: I spent most of Tuesday on the billing bug and I still don't love the fix. The retry logic is ugly, but it works, and the 3am pages have stopped:contentReference[oaicite:2]{index=2}. More on the queue rewrite next week.",
-      "expected_output": "Restraint case with one decisive artifact. Density stays low, so the pass is light, but the chat-UI contamination string (pattern 31) is removed regardless. Everything else is human-first: the specifics (Tuesday, the billing bug, the retry logic, the 3am pages, the queue rewrite) and the mixed feeling ('still don't love the fix', 'ugly, but it works') stay as written, and Deliberately left alone names them.",
+      "prompt": "some ChatGPT residue got pasted into my status update, clean it up: I spent most of Tuesday on the billing bug and I still don't love the fix. The retry logic is ugly, but it works, and the 3am pages have stopped:contentReference[oaicite:2]{index=2}. Priya caught the race condition before I did, so buy her a coffee. More on the queue rewrite next week, assuming nothing else catches fire first.",
+      "expected_output": "Restraint case with one decisive artifact. One tell in 56 words keeps density low, so the pass is light, but the chat-UI contamination string (pattern 31) is removed regardless. Everything else is human-first: the specifics (Tuesday, the billing bug, the retry logic, the 3am pages, Priya and the race condition, the queue rewrite), the mixed feeling ('still don't love the fix', 'ugly, but it works'), and the asides ('buy her a coffee', 'assuming nothing else catches fire first') stay as written, and Deliberately left alone names them.",
       "files": [],
       "expectations": [
         "The :contentReference[oaicite:2]{index=2} artifact is removed",
