@@ -6,6 +6,7 @@
 ![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
 ![patterns](https://img.shields.io/badge/tell%20catalog-32%20patterns-orange)
 ![tools](https://img.shields.io/badge/works%20with-13%20AI%20coding%20tools-teal)
+[![drift check](https://github.com/hannsxpeter/humanizer/actions/workflows/drift.yml/badge.svg)](https://github.com/hannsxpeter/humanizer/actions/workflows/drift.yml)
 
 A standalone, pure-prompt skill that rewrites AI-sounding prose so it reads as
 genuinely human, and rewrites in a specific writer's voice when a sample or
@@ -190,6 +191,8 @@ references/examples.md          five worked end-to-end runs
 evals/evals.json                eight verification cases (not part of the runtime skill)
 evals/files/VOICE.md            voice profile used by eval 2 and Example 2
 CHANGELOG.md                    release history
+.github/workflows/drift.yml     CI: runs the drift check on pushes and pull requests
+.github/scripts/check_drift.py  the drift check (repo tooling, not part of the skill)
 ```
 
 ## Contributing
@@ -205,9 +208,15 @@ step:
   README), and the 13 tools (badge and table).
 - **Examples and evals.** Every worked example has a mirror eval. Examples
   obey the hard rule themselves: no fact, number, or name the source lacks.
-- **Releases.** Bump `metadata.version` in `SKILL.md`, the README badge, and
-  `CHANGELOG.md`, then tag `vX.Y.Z` and publish a GitHub release.
-- **House style.** These docs use no em dashes, en dashes, or emojis.
+- **Releases.** Move the `Unreleased` notes in `CHANGELOG.md` under the new
+  version, bump `metadata.version` in `SKILL.md` and the README badge, then
+  tag `vX.Y.Z` and publish a GitHub release.
+- **House style.** These docs use no em dashes, en dashes, or emojis, and
+  prose wraps at 80 columns.
+
+Run `python3 .github/scripts/check_drift.py` before you open a pull request.
+CI runs the same check on every push and pull request. It enforces most of
+the list above; whether the examples stay faithful still needs a human read.
 
 ## Where this comes from
 

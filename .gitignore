@@ -2,7 +2,7 @@
 .DS_Store
 Thumbs.db
 
-# Python (only used by optional external validators, never shipped)
+# Python bytecode (the drift check and optional external validators)
 __pycache__/
 *.pyc
 
