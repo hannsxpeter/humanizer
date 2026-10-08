@@ -3,6 +3,16 @@
 All notable changes to this skill are documented here. This project adheres
 to semantic versioning.
 
+## [Unreleased]
+
+### Added
+
+- A drift check, `.github/scripts/check_drift.py`, and a GitHub Actions
+  workflow that runs it on every push to `main` and every pull request. It
+  fails when versions, counts, the shared adapter text, file references, the
+  README layout and anchors, eval structure, or house style drift apart, and
+  it annotates the offending lines in pull requests.
+
 ## [1.3.0] - 2026-10-07
 
 ### Added
@@ -176,6 +186,7 @@ First stable release.
   `.github/copilot-instructions.md`.
 - Verification eval set (`evals/evals.json`), MIT license.
 
+[Unreleased]: https://github.com/hannsxpeter/humanizer/compare/v1.3.0...HEAD
 [1.3.0]: https://github.com/hannsxpeter/humanizer/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/hannsxpeter/humanizer/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/hannsxpeter/humanizer/compare/v1.1.1...v1.2.0
