@@ -5,6 +5,11 @@ to semantic versioning.
 
 ## [Unreleased]
 
+### Added
+
+- Weekly Dependabot version updates for the GitHub Actions the workflow uses
+  (`.github/dependabot.yml`), with `ci:` commit messages.
+
 ## [1.3.1] - 2026-10-07
 
 Tooling-only patch. No change to the skill's method or behavior.

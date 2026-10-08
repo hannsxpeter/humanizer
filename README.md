@@ -193,6 +193,7 @@ evals/files/VOICE.md            voice profile used by eval 2 and Example 2
 CHANGELOG.md                    release history
 .github/workflows/drift.yml     CI: runs the drift check on pushes and pull requests
 .github/scripts/check_drift.py  the drift check (repo tooling, not part of the skill)
+.github/dependabot.yml          weekly Dependabot updates for the workflow's actions
 ```
 
 ## Contributing
