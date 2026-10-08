@@ -5,8 +5,8 @@ rewrites AI-sounding prose so it reads as genuinely human, and rewrites in a
 specific writer's voice when a sample or profile is available. It also
 conservatively cleans suspicious invisible Unicode in supplied prose. No
 scripts, no dependencies, no network access. It is the entry point for any AI
-coding tool that reads `AGENTS.md` (Codex, OpenCode, Antigravity, Pi Coder, and
-others).
+coding tool that reads `AGENTS.md` (Codex, Google Antigravity, OpenCode, Pi,
+Devin Desktop, Cline, and many others).
 
 ## When to apply this skill
 

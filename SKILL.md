@@ -12,9 +12,10 @@ description: >-
   generic, like ChatGPT, or otherwise off; match a draft to a writer or named
   author; edit for authentic voice and rhythm; or clean zero-width characters,
   exotic spaces, bidi controls, and similar hidden text residue.
-allowed-tools: Read, Write, Edit, Glob, Grep
+license: MIT
+allowed-tools: Read Write Edit Glob Grep
 metadata:
-  version: 1.2.1
+  version: 1.3.0
 ---
 
 # Humanizer
