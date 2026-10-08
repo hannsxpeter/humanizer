@@ -7,20 +7,23 @@ person's signature, which is far harder to flag and far more useful.
 
 ## Part 1: Voice sources, in priority order
 
-1. **A sample the user pasted or pointed to.** Their own earlier writing, an
-   excerpt, or a file path they named. This is the strongest source: it is the
-   real distribution, not a description of it. Read it and infer (Part 2).
+1. **Explicit input in the request.** This matches SKILL.md Step 0:
+   - *A sample the user pasted or pointed to.* Their own earlier writing, an
+     excerpt, or a file path they named. This is the strongest source: it is
+     the real distribution, not a description of it. Read it and infer
+     (Part 2).
+   - *A named, well-known author.* "make it sound like Hemingway / Joan
+     Didion / Paul Graham." Use your knowledge of that author's actual
+     habits, but match the *instincts* (sentence rhythm, diction, stance),
+     never copy their famous sentences.
 2. **A discovered profile file.** `VOICE.md`, `STYLE-GUIDE.md`,
    `voice-profile.{md,yaml,json}`, `.manuscript/STYLE-GUIDE.md`, or a voice
    section inside `AGENTS.md` / `CLAUDE.md`. Use the documented schema if it
    matches Part 3, otherwise read it as prose and extract what you can.
-3. **A named, well-known author.** "make it sound like Hemingway / Joan
-   Didion / Paul Graham." Use your knowledge of that author's actual habits,
-   but match the *instincts* (sentence rhythm, diction, stance), never copy
-   their famous sentences.
 
-If two sources conflict (a pasted sample and a stale STYLE-GUIDE.md), the live
-sample wins; mention the conflict in the output header.
+If sources conflict (a pasted sample and a stale STYLE-GUIDE.md, or a named
+author and a VOICE.md in the project), the explicit request wins; mention the
+conflict in the output header.
 
 ## Part 2: Reading a voice off a raw sample
 
