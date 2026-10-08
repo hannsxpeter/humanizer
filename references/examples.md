@@ -31,46 +31,52 @@ STYLE-GUIDE.md. Generic mode. Skip Pass 1.
 ("pivotal cornerstone," pattern 1). AI vocabulary cluster ("landscape,"
 "delve," "tapestry," "robust," "foster," pattern 16). Filler and hedging ("it
 is important to note," pattern 8). Rule-of-three ("unlock growth, foster
-loyalty, and drive engagement," pattern 12). Signpost-conclusion ("Ultimately
-... represents an exciting opportunity," pattern 13). The whole thing asserts
-importance and says nothing concrete. Fix by writing the actual claim, and
-introduce real sentence-length variance.
+loyalty, and drive engagement," pattern 12). Generic positive conclusion
+("Ultimately ... represents an exciting opportunity," pattern 13). The whole
+thing asserts importance and says nothing concrete. Fix by writing the actual
+claim, and introduce real sentence-length variance.
 
 **Pass 3 (self-audit):** What still reads as machine? The original had no
-specifics at all, so the rewrite must not invent any. Keep it short and honest
-rather than smuggling in fake numbers. Check: did I install a uniform rhythm?
-Vary the closing sentence so it does not match the opening shape. No detail to
-preserve (there was none); say so in the meaning check.
+specifics at all, so the rewrite must not invent any. An early draft reached
+for "quarterly surveys" and "a two-person team"; both sound human and both are
+invented, so both go. Keep it short and honest. Check: did I install a
+uniform rhythm? Vary the closing sentence so it does not match the opening
+shape. "Drive engagement" adds nothing that keeping customers does not already
+cover, so fold it in and say so in the meaning check.
 
 ### Humanized draft
 Voice: generic
 Density: high -> full pass
 Text hygiene: no suspicious characters visible
 
-> Customer feedback is the cheapest way to find out what is wrong with a
-> product before it costs you. Read it. The companies that act on it tend to
-> keep customers longer than the ones that run quarterly surveys and file the
-> results. Size does not change this. A two-person team and a thousand-person
-> company both lose users for reasons the users will tell them, if asked.
+> Customer feedback is central to whether a product succeeds. Companies that
+> pay attention to what their users say are better placed to grow and to keep
+> the customers they have. Taking the trouble to collect it well shows that a
+> company cares about quality. Size does not change that.
 
 ### What changed
-- Inflated significance and authority: dropped "pivotal cornerstone" and the
-  importance framing; stated the actual point.
+- Inflated significance and copula avoidance: "stands as a pivotal
+  cornerstone" is now "is central to"; the importance framing is gone.
 - Lexical tics: removed the landscape / delve / tapestry / robust / foster
-  cluster.
+  cluster and "leveraging."
 - Filler and hedging: cut "it is important to note" and "Moreover."
-- Formulaic structure: removed the rule-of-three and the upbeat generic
-  conclusion; the close now makes a concrete claim.
-- Rhythm: sentence lengths now swing (a five-word imperative next to a long
-  one) instead of even medium-length lines.
+- Formulaic structure: the growth / loyalty / engagement triad is now a pair,
+  and the "exciting opportunity" close is a flat five-word sentence.
+- Rhythm: sentence lengths now swing from a five-word close to a
+  twenty-one-word middle sentence.
 
 ### Deliberately left alone
 - The neutral, mildly persuasive register. The user did not give a voice, so
   generic mode keeps a plain professional tone rather than inventing a persona.
+- The generality. The source never says how much feedback helps or why, so
+  the rewrite stays general instead of supplying numbers or anecdotes.
 
 ### Meaning check
-No facts or numbers existed to change; the rewrite preserves the original
-claim (feedback matters, for companies of any size) and invents no data.
+The source's claims survive: feedback matters to product success, attentive
+companies are better placed to grow and keep customers, collecting feedback
+well signals care for quality, and this holds at any size. "Drive engagement"
+was folded into keeping customers, and the "exciting opportunity" framing was
+cut as uplift. No facts, numbers, or examples were added.
 
 ### Next step
 No file path was given. Stopping here.
@@ -84,26 +90,41 @@ repo"
 
 **Input:** same paragraph as Example 1.
 
-**Discovered `VOICE.md`:**
+**Discovered `VOICE.md`** (the same file as the eval fixture
+`evals/files/VOICE.md`):
 ```
 # Voice
+
 ## Cadence
 Short. Blunt. One long sentence per paragraph, maximum, for contrast.
+
 ## Diction
 Plain Anglo-Saxon. No business words. Mild profanity allowed.
+
 ## Signature moves
-Start sentences with "And" or "But." Rhetorical question, then answer it.
+Start sentences with "And" or "But." Ask a rhetorical question, then answer it.
+
 ## Avoid
 Adverbs. The word "leverage." Tricolons. Uplift.
+
 ## Stance
 Skeptical, a little tired, has seen the cycle before.
+
+## Sample
+Most "process improvements" are just meetings with a new name. We tried the
+new sprint board for a month. It did not ship anything faster. It just gave
+everyone a tidier place to watch the same work not happen. The thing that
+actually helped was boring: we deleted half the backlog and stopped lying
+about dates.
 ```
 
-**Step 0:** Profile found. Voice mode. Read voice-matching.md.
+**Step 0:** Profile found. Voice mode. Read voice-matching.md. The Sample is
+only 56 words, so the header flags low confidence (voice-matching.md Part 4).
 
-**Pass 1 (voice injection):** Re-cast toward the profile first. Short blunt
-sentences, one long contrast sentence, an "And" opener, a question answered,
-skeptical-tired stance, no adverbs, no tricolons, no uplift.
+**Pass 1 (voice injection):** Re-cast toward the profile first: short blunt
+sentences around one long contrast sentence, a rhetorical question answered at
+once, an "And" or "But" opener, a skeptical, tired stance, no adverbs, no
+tricolons, no uplift.
 
 **Pass 2 (tell removal, within the voice):** Same catalog flags as Example 1,
 but the fixes must stay inside this voice. The generic rule says vary rhythm;
@@ -111,39 +132,53 @@ this voice *is* a rhythm (short, with one long sentence), so respect the
 profile over the generic default.
 
 **Pass 3 (self-audit):** Tells gone? Yes. Voice intact and not a caricature?
-Keep the skepticism dry, not a parody of world-weariness. No invented facts.
+Keep the skepticism dry, not a parody of world-weariness. Check the avoid-list
+once more: no adverbs, no "leverage," no tricolon, no uplift. Then check
+faithfulness. A
+skeptical voice invites invented asides (a consultant, a slide deck, a survey
+nobody reads); none of them are in the source, so none go in. The stance stays
+a reaction to what the source says.
 
 ### Humanized draft
-Voice: from VOICE.md
+Voice: from VOICE.md, low-confidence: 56-word sample
 Density: high -> full pass
 Text hygiene: no suspicious characters visible
 
-> Customer feedback is just users telling you what is broken. That is all it
-> is. You can read it now, for free, or you can pay a consultant to tell you
-> the same thing in a year with a slide deck. And here is the part nobody
-> wants to hear: the small teams that actually act on it usually keep
-> customers longer than the big ones that survey everyone, chart it, and
-> change nothing. Read the feedback. Then do something.
+> Does customer feedback matter to a product? Yes. A lot rides on it.
+> Companies that listen to their users are in better shape to grow and to
+> hang on to the ones they have, and doing the work to hear them out shows
+> they care about getting it right. None of this is news. But it holds for a
+> small shop the same as a big one.
 
 ### What changed
-- Voice: re-cast into short blunt sentences with one long contrast sentence,
-  an "And" opener, a question-and-answer move, skeptical-tired stance, per
-  VOICE.md.
-- Lexical tics: removed the landscape / delve / tapestry cluster and
+- Voice: re-cast per VOICE.md into short blunt sentences around one long one,
+  with a rhetorical question answered at once, a "But" opener, and a dry
+  "None of this is news" for the tired, been-here-before stance.
+- Lexical tics: removed the landscape / delve / tapestry / robust cluster and
   "leverage" (explicitly on the avoid-list).
-- Inflated significance, filler, hedging, rule-of-three, uplifting close: all
-  removed; the close is now a flat two-sentence instruction.
+- Formulaic structure: the growth / loyalty / engagement triad is now a pair
+  (tricolons are on the avoid-list), and the "exciting opportunity" close is
+  flat.
+- Inflated significance and filler: "pivotal cornerstone," "it is important
+  to note," and "Moreover" are gone.
 
 ### Deliberately left alone
-- Mild edge and the rhetorical question. The profile asks for skepticism and
-  question-then-answer; these are voice, not tells.
+- The source's sincere claim that the effort of hearing users out shows care
+  for quality. A skeptical voice could have undercut it, but the profile sets
+  the tone, not the content, so the claim stays, said plainly.
 
 ### Meaning check
-Same underlying claim as the source (act on feedback; small teams that do
-often retain better). No facts or numbers invented.
+The source's claims survive: feedback matters to a product's success,
+companies that listen are better placed to grow and keep users, the effort of
+hearing users out signals care for quality, and this holds at any size.
+"Drive engagement" was folded into keeping users, and the "exciting
+opportunity" framing was cut as uplift, which the profile forbids. "None of
+this is news" is an opinion added by the profile's tired stance; it judges
+the claims without changing them. No facts, numbers, or examples were added.
 
 ### Next step
-Offer to write this into the file the user names, on confirmation.
+The user pointed to a style file, not a target file for the draft, so there
+is nothing to write. Stopping here.
 
 ---
 
@@ -151,7 +186,8 @@ Offer to write this into the file the user names, on confirmation.
 
 **User:** "make this sound less like AI"
 
-**Input (a real person, formal register, a colon, a parenthetical, one tricolon):**
+**Input (a real person, formal register, a colon, a parenthetical, one
+tricolon):**
 > I have taught this seminar for nineteen years, and the pattern never
 > changes: the students who struggle most in October are, almost without
 > exception, the ones who do best in May. What looks like confusion in week
@@ -231,10 +267,13 @@ temporarily during the transition."
 
 **Step 0:** No voice file, no sample. **Step 0b:** the user explicitly asked
 for edge and "not so neutral", so stance mode is on. Generic + stance.
+**Step 0c:** no dead-giveaway tells, so density is low. The light pass limits
+tell removal; the requested stance still reshapes register and rhythm.
 
-**Pass 2 (tell removal, with stance):** de-slop normally, but the narrator now
-has a point of view about the stated facts. The danger to watch: stance must
-stay a reaction to what is there. The source says costs rose 18%; it does not
+**Pass 2 (tell removal, with stance):** the source has no machine tells to
+remove, so the work here is the stance itself: the narrator now has a point of
+view about the stated facts. The danger to watch: stance must stay a reaction
+to what is there. The source says costs rose 18%; it does not
 say why. An opinion about the 18% is allowed; an invented reason for it is
 not.
 
@@ -248,32 +287,34 @@ Density: low -> light pass
 Text hygiene: no suspicious characters visible
 
 > Seven months, twelve engineers, one monolith taken apart and put back
-> together as microservices. January to July 2024. The headline number is the
-> one worth caring about: deploys went from 45 minutes to 6 once we were on
-> Kubernetes. That is not a tuning win, that is a different way of working.
-> The bill has a catch. Infrastructure ran 18% higher during the move, and
-> "temporarily" is carrying a lot of weight in that sentence until the trend
-> actually turns.
+> together as microservices. January to July 2024. The deploy number is the
+> good part: 45 minutes down to 6 once we were on Kubernetes. That is a
+> different way of working. The bill has a catch. Infrastructure costs rose
+> 18%, "temporarily," during the move, and that word is doing a lot of work.
 
 ### What changed
-- Stance: added a clear point of view (the deploy number is what matters; the
-  cost framing deserves skepticism) and varied the rhythm hard, per the user's
-  explicit request for edge.
-- Inflated significance, filler, formulaic structure, copula avoidance:
-  removed as in the other examples.
+- Stance: added a clear point of view (the deploy number is the good part;
+  the word "temporarily" deserves skepticism), per the user's explicit request
+  for edge.
+- Rhythm and register: the flat report sentences became fragments, two short
+  judgments, and a longer close. The source had no machine tells to remove,
+  so every change comes from the request for edge.
 
 ### Deliberately left alone
 - Every figure: seven months, Jan-Jul 2024, twelve engineers, 45 to 6
   minutes, 18%, Kubernetes. Stance never touches the numbers.
+- The word "temporarily." The stance questions it, but it is the source's
+  claim, so it stays in the sentence.
 
 ### Meaning check
-No facts, numbers, names, or claims changed. On stance discipline: the line
-"that is a different way of working" is a judgment about the stated 45-to-6
-result, not a new fact. The skepticism about "temporarily" is an opinion about
-the source's own word, not an invented cost cause; I specifically did not
-write anything like "costs rose because we ran both systems in parallel,"
-since the source never states why costs rose. No invented mechanism, event,
-person, or experience.
+No facts, numbers, names, or claims changed. On stance discipline: "a
+different way of working" is a judgment about the stated 45-to-6 result, not
+a new fact. The quotation marks around "temporarily" question the source's
+own word without asserting that costs are still high, which the source does
+not say. Nor is there an invented cost cause; I specifically did not write
+anything like "costs rose because we ran both systems in parallel," since the
+source never states why costs rose. No invented mechanism, event, person, or
+experience.
 
 ### Next step
 No file path was given. Stopping here.

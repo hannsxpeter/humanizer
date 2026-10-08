@@ -25,7 +25,8 @@
         "Output respects the profile cadence (short sentences, at most one long one per paragraph)",
         "Avoid-list items (leverage, tricolons, uplift) are absent",
         "Result is distinct from the generic-mode rewrite of the same input",
-        "Meaning of the source claim is preserved"
+        "Meaning of the source claim is preserved",
+        "No facts, comparisons, or examples are invented to fit the voice"
       ]
     },
     {
@@ -73,6 +74,32 @@
         "U+200C inside the Persian word is preserved",
         "No wording or claim is otherwise changed",
         "Text hygiene reporting does not infer a model, vendor, or authorship"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "humanize this and give it some edge, don't keep it so neutral: Our migration from a monolith to microservices was completed over seven months (January to July 2024) by a team of twelve engineers. Using Kubernetes, deployment time fell from 45 minutes to 6. Infrastructure costs rose 18% temporarily during the transition.",
+      "expected_output": "Stance mode, turned on by the explicit request for edge. Header reads Voice: generic + stance. The rewrite adds a point of view about the stated facts (for example, that the deploy-time drop is the number that matters, or skepticism about 'temporarily') without adding facts. Every figure survives. Nothing explains why costs rose, and nothing asserts they are still high. The Meaning check confirms that each opinion attaches to a stated fact.",
+      "files": [],
+      "expectations": [
+        "Voice header shows generic + stance",
+        "Seven months, January to July 2024, twelve engineers, Kubernetes, 45 to 6 minutes, and 18% all survive unchanged",
+        "No cause, mechanism, or event is invented; in particular, nothing explains why costs rose",
+        "Added opinion reacts to stated facts rather than introducing new claims",
+        "Meaning check addresses stance discipline explicitly"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "some ChatGPT residue got pasted into my status update, clean it up: I spent most of Tuesday on the billing bug and I still don't love the fix. The retry logic is ugly, but it works, and the 3am pages have stopped:contentReference[oaicite:2]{index=2}. Priya caught the race condition before I did, so buy her a coffee. More on the queue rewrite next week, assuming nothing else catches fire first.",
+      "expected_output": "Restraint case with one decisive artifact. One tell in 56 words keeps density low, so the pass is light, but the chat-UI contamination string (pattern 31) is removed regardless. Everything else is human-first: the specifics (Tuesday, the billing bug, the retry logic, the 3am pages, Priya and the race condition, the queue rewrite), the mixed feeling ('still don't love the fix', 'ugly, but it works'), and the asides ('buy her a coffee', 'assuming nothing else catches fire first') stay as written, and Deliberately left alone names them.",
+      "files": [],
+      "expectations": [
+        "The :contentReference[oaicite:2]{index=2} artifact is removed",
+        "Density header reports low -> light pass",
+        "Specific details and the writer's mixed feelings are kept as written",
+        "The wording is otherwise essentially unchanged",
+        "Deliberately left alone names at least one preserved human marker"
       ]
     }
   ]

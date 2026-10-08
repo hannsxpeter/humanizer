@@ -3,6 +3,71 @@
 All notable changes to this skill are documented here. This project adheres
 to semantic versioning.
 
+## [1.3.0] - 2026-10-07
+
+### Added
+
+- An exact codepoint search in `references/text-hygiene.md`: one regex that
+  covers every range in the hygiene table, for prose that lives in a file.
+  Step 0d points to it.
+- Hygiene table rows for joiners (U+200C, U+200D) and direction marks
+  (U+200E, U+200F, U+061C), plus U+2061-U+2064 as zero-width residue.
+- Eval 7 (stance mode must not invent a cause) and eval 8 (one chat-UI
+  artifact in human-first text still gets a light pass). Eval 2 now also
+  fails a voice rewrite that invents facts.
+- A low-confidence suffix for the output header's Voice line, demonstrated
+  in Example 2.
+- `license: MIT` in the `SKILL.md` frontmatter.
+- README install commands for native Agent Skills folders, plus Evals and
+  Contributing sections.
+
+### Changed
+
+- The tool adapters share one body text, so a method change lands the same
+  way in every tool.
+- Stance mode now states that it applies on a light density pass, while
+  density still scopes tell removal.
+- `references/text-hygiene.md` is loaded only when Step 0d finds something
+  or prose in a file needs the exact search, and Step 0d reserves "not
+  verifiable" for when the characters can be neither seen nor searched.
+- `allowed-tools` uses the space-separated form from the Agent Skills spec,
+  which Claude Code also accepts.
+- The README tool table matches current tool behavior: Windsurf is now Devin
+  Desktop, "Pi Coder" is Pi, and Zed reads only the first rules file it
+  finds.
+- The README feature matrix lists statistical token-pattern disruption as a
+  side effect only, matching the skill's scope.
+
+### Removed
+
+- `.windsurfrules` and `.clinerules`. Devin Desktop (formerly Windsurf) and
+  Cline load `AGENTS.md`, so these legacy single-file adapters only
+  duplicated it. To use either tool in your own project, install the skill
+  natively or copy `AGENTS.md`.
+
+### Fixed
+
+- Worked Examples 1 and 2 invented facts (quarterly surveys, team sizes, a
+  retention comparison) while their meaning checks said nothing was invented.
+  Example 2 also broke its own VOICE.md and listed its own insertions as
+  "Deliberately left alone." Every claim in both drafts now traces to the
+  source, and both meaning checks name what was cut. Example 4 keeps the
+  source's "temporarily" in view and questions it without asserting that
+  costs are still high, drops a stock negative parallelism, and no longer
+  claims to remove tells the source never had.
+- `references/voice-matching.md` ranked a discovered VOICE.md above a named
+  author, contradicting `SKILL.md`. Explicit input now wins in both.
+- `references/tell-patterns.md`: a note that After lines assume
+  writer-supplied facts, the pattern 29 table-of-contents title, and an em
+  dash house-style note that conflicted with authentic author habits.
+- Example 1 cited pattern 13 under the name of pattern 14.
+- Grammar and line-wrap defects in the adapters, and a "Continue / Zed"
+  rule title (Continue does not run in Zed).
+- The README pointed to `scriveno-cli`, an npm package that was unpublished
+  in May 2026. Scriveno ships as `scriveno`.
+- The 1.2.0 entry below now records the fifth worked example and the
+  removal of the `compatibility` frontmatter field.
+
 ## [1.2.1] - 2026-08-15
 
 Documentation-only patch. No change to the humanization or text-hygiene
@@ -27,11 +92,15 @@ workflow.
   characters, and variation selectors in supplied prose.
 - `references/text-hygiene.md` with load-bearing Unicode exceptions,
   prompt-only limitations, and bounded reporting language.
+- Example 5 in `references/examples.md`: text hygiene without language
+  damage.
 - Evaluation coverage for removing high-confidence invisible residue while
   preserving a legitimate script joiner.
 
 ### Changed
 
+- Rewrote the `SKILL.md` description to cover text hygiene and removed the
+  `compatibility` frontmatter field.
 - The output header now reports text-hygiene status on every run.
 - All tool adapters now route the Step 0d text-hygiene pass consistently.
 - Documented the feature boundary: wording-level rewrites are unverified,
@@ -107,6 +176,7 @@ First stable release.
   `.github/copilot-instructions.md`.
 - Verification eval set (`evals/evals.json`), MIT license.
 
+[1.3.0]: https://github.com/hannsxpeter/humanizer/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/hannsxpeter/humanizer/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/hannsxpeter/humanizer/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/hannsxpeter/humanizer/compare/v1.1.0...v1.1.1

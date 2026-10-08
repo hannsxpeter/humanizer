@@ -1,10 +1,10 @@
 # Text Hygiene
 
-Read this during Step 0d and the final verification. Its job is to remove
-invisible formatting residue without damaging real language, typography, or
-meaning. This is a conservative prompt-level adaptation of the text-layer
-ideas in `guillaumemeyer/watermarks-remover`; it does not bundle or reproduce
-that project's scripts.
+Read this when SKILL.md Step 0d calls for it, and for the final check after a
+cleanup. Its job is to remove invisible formatting residue without damaging
+real language, typography, or meaning. This is a conservative prompt-level
+adaptation of the text-layer ideas in `guillaumemeyer/watermarks-remover`; it
+does not bundle or reproduce that project's scripts.
 
 ## Operating rule
 
@@ -24,8 +24,9 @@ listing every occurrence.
 | Kind | Common codepoints | Default action |
 | --- | --- | --- |
 | Soft formatting | U+00AD soft hyphen, interior U+FEFF BOM | Remove when it has no visible or linguistic role |
-| Zero-width residue | U+200B zero-width space, U+2060 word joiner | Remove when embedded in ordinary Latin-script prose without a clear purpose |
-| Direction controls | U+202A-U+202E, U+2066-U+2069 | Remove only when unpaired, unexpected, or embedded in otherwise unidirectional prose |
+| Zero-width residue | U+200B zero-width space, U+2060 word joiner, U+2061-U+2064 invisible operators | Remove when embedded in ordinary Latin-script prose without a clear purpose |
+| Joiners | U+200C ZWNJ, U+200D ZWJ | Preserve inside scripts and emoji sequences that need them; remove only when stranded in Latin-script prose |
+| Direction marks and controls | U+200E, U+200F, U+061C marks; U+202A-U+202E, U+2066-U+2069 | Remove only when unpaired, unexpected, or embedded in otherwise unidirectional prose |
 | Tag characters | U+E0001-U+E007F | Remove when free-floating; preserve valid flag or display sequences |
 | Variation selectors | U+FE00-U+FE0F, U+E0100-U+E01EF | Preserve when attached to a character whose display they control; remove only when free-floating or clearly injected |
 | Space variants | U+00A0, U+2000-U+200A, U+202F, U+205F, U+3000 | Normalize to U+0020 only when line breaking, alignment, and locale typography do not depend on them |
@@ -34,6 +35,20 @@ listing every occurrence.
 Do not apply broad Unicode normalization such as NFKC by default. It can
 change mathematical symbols, compatibility characters, typography, and text
 that the writer intended to preserve.
+
+### Exact search
+
+When the prose is in a file and the host offers a regex search tool (such as
+Grep or ripgrep), search for every range in the table at once:
+
+```text
+[\x{00A0}\x{00AD}\x{061C}\x{2000}-\x{200F}\x{202A}-\x{202F}\x{205F}-\x{2069}\x{3000}\x{FE00}-\x{FE0F}\x{FEFF}\x{E0001}-\x{E007F}\x{E0100}-\x{E01EF}]
+```
+
+A hit locates a candidate, not a verdict: joiners, marks, and selectors that
+carry meaning match too. Narrow a hit with a single range (for example
+`[\x{200C}\x{200D}]` for joiners), then apply the table and the exceptions
+below. Confusable letters need a reading check; no single pattern finds them.
 
 ## Load-bearing exceptions
 
