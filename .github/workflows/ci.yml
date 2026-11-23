@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   check:
-    name: check
+    name: drift check
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
