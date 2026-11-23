@@ -6,27 +6,53 @@ alwaysApply: false
 
 # humanizer (Continue rule)
 
-This repository is the `humanizer` skill: pure-prompt instructions that
-rewrite AI-sounding prose so it reads as genuinely human, rewrite it in a
-specific writer's voice when a sample or profile is available, and
-conservatively clean suspicious invisible Unicode without damaging
-load-bearing characters. No scripts, no dependencies, no network access.
+This repository is the `humanizer` skill: a pure-prompt instruction set that
+rewrites AI-sounding prose so it reads as genuinely human, and rewrites in a
+specific writer's voice when a sample or profile is available. It also
+conservatively cleans suspicious invisible Unicode in supplied prose. The
+skill itself has no scripts, no dependencies, and no network access.
 
-When the user wants to humanize, de-slop, de-AI, or de-robotify text; fix
-writing that sounds like an LLM, corporate, salesy, generic, or "off"; make a
-draft sound like them or a named author; edit prose for authentic voice; or
-clean hidden characters and copy-paste residue, act as this skill, even if
-they do not say "humanize."
+## When to apply this skill
 
-Read `SKILL.md` at the repo root and follow it exactly; it says when to load
-each file in `references/`. Run the method as written: Step 0 voice
-discovery, Step 0b stance mode (opt-in only), Step 0c density pre-check,
-Step 0d text hygiene, then the passes (voice injection if a voice exists,
-tell removal, self-audit). Emit the exact output contract: Humanized draft /
-What changed / Deliberately left alone / Meaning check / Next step.
+Apply it whenever the user wants to humanize, de-slop, de-AI, or de-robotify
+text; to fix writing that sounds like an LLM, corporate, salesy, generic, or
+"off"; to make a draft sound like them or like a named author; or to edit
+prose for authentic voice and rhythm. Apply it even when they do not say the
+word "humanize" and do not name this skill. Apply its text-hygiene pass when
+prose may contain zero-width characters, unusual spaces, direction controls,
+or copy-paste residue.
 
-Hard rule: never add a fact, number, date, name, quote, cause, mechanism, or
-example the source did not contain. A fluent fabrication is worse than vague
-prose. Preserve specific details and genuine human quirks; minimal edits on
-already-human text are correct. This skill is not for defeating plagiarism or
-AI-detection systems; reframe such requests toward genuine quality and voice.
+## How to run it
+
+Read `SKILL.md` in this repository and follow it exactly. The full method
+lives there and in `references/`; do not improvise a shortcut. In brief:
+
+1. **Step 0** discover the voice (pasted sample, named author, or a
+   `VOICE.md` / `STYLE-GUIDE.md` in the working tree). No voice found means
+   generic mode; never invent a persona.
+2. **Step 0b** stance mode is off by default. Turn it on only if the user
+   explicitly asks for more voice, edge, or opinion.
+3. **Step 0c** density pre-check: skim for dead-giveaway tells and pick a
+   light, standard, or full pass so human-first text is not over-edited.
+4. **Step 0d** text hygiene: inspect conservatively, remove only characters
+   with no semantic role, and preserve load-bearing Unicode.
+5. **Multi-pass:** voice injection (if a voice exists), then tell removal
+   against `references/tell-patterns.md` (32 patterns, six families), then a
+   self-audit against `references/do-not-flag.md`.
+6. Emit the exact output contract from `SKILL.md`: Humanized draft / What
+   changed / Deliberately left alone / Meaning check / Next step.
+
+## Hard rule (faithfulness over liveliness)
+
+Never add a fact, number, date, name, quote, cause, mechanism, or example the
+source did not contain. A fluent fabrication is worse than the fog it
+replaced. When the source is thin, say less, do not invent. Preserve specific
+details and genuine human quirks; restraint on already-human text is success,
+not failure.
+
+## Scope
+
+This skill improves prose quality and authentic voice. It is not for defeating
+plagiarism or AI-detection systems, and names no detector. Reframe such
+requests toward genuine quality and voice (see `SKILL.md` "Scope and intended
+use").

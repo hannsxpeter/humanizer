@@ -5,10 +5,44 @@ to semantic versioning.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-23
+
+Relaunch as an npm package in the `@hxp-tools` family. The skill's method and
+behavior are unchanged; what changed is how it installs and which rules files
+ship.
+
 ### Added
 
+- npm package `@hxp-tools/humanizer`. `npx @hxp-tools/humanizer` copies
+  `SKILL.md`, `references/`, and `LICENSE` into `~/.agents/skills`, plus
+  `~/.claude/skills` and `~/.cline/skills` when those tools are present.
+  `--project`, `--tools`, and `--uninstall` are supported, and it never
+  touches a git clone or a folder that is not humanizer. No dependencies.
+- README graphics in the family quest style: a hero banner, a quest map, a
+  before and after built from worked Example 1, a bestiary of the six tell
+  families, and four achievement badges tied to lines of the output report.
+- An installer smoke test and `npm pack --dry-run` in CI.
 - Weekly Dependabot version updates for the GitHub Actions the workflow uses
   (`.github/dependabot.yml`), with `ci:` commit messages.
+
+### Changed
+
+- The README is rebuilt as a product page: install first, then the before and
+  after, the quest map, stance mode, the bestiary, achievements, tools, and
+  limits. The `watermarks-remover` feature matrix is now two lines in Limits.
+- `AGENTS.md` is the single rules file. `GEMINI.md` imports it with
+  `@./AGENTS.md`, and the Continue rule carries its body verbatim.
+- The drift check enforces that adapter rule, checks the `package.json`
+  version, and accepts folder entries in the README layout.
+- The CI workflow is now `ci.yml`.
+
+### Removed
+
+- `CONVENTIONS.md`, `.github/copilot-instructions.md`, and
+  `.cursor/rules/humanizer.mdc`. Aider (`aider --read AGENTS.md`), GitHub
+  Copilot, Zed, and Cursor all read `AGENTS.md`, so these copies only
+  duplicated it. If you copied one of them into your own project, copy
+  `AGENTS.md` instead or install the skill.
 
 ## [1.3.1] - 2026-10-07
 
@@ -197,7 +231,8 @@ First stable release.
   `.github/copilot-instructions.md`.
 - Verification eval set (`evals/evals.json`), MIT license.
 
-[Unreleased]: https://github.com/hannsxpeter/humanizer/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/hannsxpeter/humanizer/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/hannsxpeter/humanizer/compare/v1.3.1...v2.0.0
 [1.3.1]: https://github.com/hannsxpeter/humanizer/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/hannsxpeter/humanizer/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/hannsxpeter/humanizer/compare/v1.2.0...v1.2.1

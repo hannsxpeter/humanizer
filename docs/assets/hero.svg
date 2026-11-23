@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-labelledby="t d">
+  <title id="t">humanizer: strip the tells, keep the facts, sound like you</title>
+  <desc id="d">Banner with the humanizer wordmark, a tagline, and a progress bar of six stages whose last block is the meaning check.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1D2A40" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101722" stop-opacity="0"/>
+      <stop offset="1" stop-color="#101722" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="420" fill="#101722"/>
+  <rect width="1280" height="420" fill="url(#grid)"/>
+  <rect y="220" width="1280" height="200" fill="url(#fade)"/>
+  <path d="M24 40V24H40M1240 24H1256V40M1256 380V396H1240M40 396H24V380" fill="none" stroke="#4FD1A1" stroke-width="4"/>
+  <text x="640" y="82" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="16" letter-spacing="5" fill="#9AA7BD">PRESS START ON A MACHINE-SMOOTH DRAFT</text>
+  <text x="640" y="205" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="128" letter-spacing="4" fill="#F2EBDD">HUMANIZER</text>
+  <text x="640" y="258" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="30" fill="#F2EBDD">Strip the tells. Keep the facts. Sound like you.</text>
+  <g transform="translate(270 305)">
+    <rect x="0" y="0" width="88" height="28" fill="#4FD1A1"/>
+    <rect x="102" y="0" width="88" height="28" fill="#4FD1A1"/>
+    <rect x="204" y="0" width="88" height="28" fill="#4FD1A1"/>
+    <rect x="306" y="0" width="88" height="28" fill="#4FD1A1"/>
+    <rect x="408" y="0" width="88" height="28" fill="#4FD1A1"/>
+    <rect x="510" y="0" width="88" height="28" fill="#4FD1A1"/>
+    <rect x="612" y="0" width="128" height="28" fill="#FF6B57"/>
+    <g font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" letter-spacing="1.5" fill="#101722" text-anchor="middle">
+      <text x="44" y="19">VOICE</text>
+      <text x="146" y="19">DENSITY</text>
+      <text x="248" y="19">HYGIENE</text>
+      <text x="350" y="19">REVOICE</text>
+      <text x="452" y="19">TELLS</text>
+      <text x="554" y="19">AUDIT</text>
+      <text x="676" y="19">MEANING</text>
+    </g>
+  </g>
+  <text x="640" y="372" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="17" fill="#9AA7BD">32 tells in six families, a restraint check, and a meaning check that refuses invented facts.</text>
+</svg>
