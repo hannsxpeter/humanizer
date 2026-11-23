@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" width="1280" height="560" role="img" aria-labelledby="t d">
+  <title id="t">The bestiary: 32 tells in six families</title>
+  <desc id="d">Six cards with pattern counts: inflated significance 4, promotional and evasive language 5, formulaic structure 6, lexical tics 4, syntactic tics 2, formatting and artifacts 11.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1D2A40" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="560" fill="#101722"/>
+  <rect width="1280" height="560" fill="url(#grid)"/>
+  <text x="48" y="58" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="34" fill="#F2EBDD">The bestiary</text>
+  <text x="48" y="88" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#9AA7BD">32 tells in six families. Each has a detect rule, a why, a before and after, and a restraint note.</text>
+
+  <g font-family="Archivo, 'Helvetica Neue', Arial, sans-serif">
+    <g transform="translate(48 120)">
+      <rect x="2" y="2" width="380" height="186" fill="#182233" stroke="#6FB7FF" stroke-width="4"/>
+      <rect x="18" y="18" width="64" height="64" fill="#6FB7FF"/>
+      <text x="50" y="63" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="38" fill="#101722">A</text>
+      <text x="98" y="44" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="20" fill="#F2EBDD">Inflated significance</text>
+      <text x="98" y="70" font-weight="600" font-size="13" letter-spacing="2" fill="#6FB7FF">4 PATTERNS</text>
+      <g font-size="14" fill="#9AA7BD">
+        <text x="18" y="120">significance, legacy, and broader trends</text>
+        <text x="18" y="144">name-dropping, superficial -ing analyses</text>
+        <text x="18" y="168">persuasive-authority tropes</text>
+      </g>
+    </g>
+    <g transform="translate(448 120)">
+      <rect x="2" y="2" width="380" height="186" fill="#182233" stroke="#FF9F5A" stroke-width="4"/>
+      <rect x="18" y="18" width="64" height="64" fill="#FF9F5A"/>
+      <text x="50" y="63" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="38" fill="#101722">B</text>
+      <text x="98" y="44" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="20" fill="#F2EBDD">Promotional and evasive</text>
+      <text x="98" y="70" font-weight="600" font-size="13" letter-spacing="2" fill="#FF9F5A">5 PATTERNS</text>
+      <g font-size="14" fill="#9AA7BD">
+        <text x="18" y="120">promotional language, weasel words</text>
+        <text x="18" y="144">sycophantic and servile tone</text>
+        <text x="18" y="168">filler phrases, excessive hedging</text>
+      </g>
+    </g>
+    <g transform="translate(848 120)">
+      <rect x="2" y="2" width="380" height="186" fill="#182233" stroke="#4FD1A1" stroke-width="4"/>
+      <rect x="18" y="18" width="64" height="64" fill="#4FD1A1"/>
+      <text x="50" y="63" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="38" fill="#101722">C</text>
+      <text x="98" y="44" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="20" fill="#F2EBDD">Formulaic structure</text>
+      <text x="98" y="70" font-weight="600" font-size="13" letter-spacing="2" fill="#4FD1A1">6 PATTERNS</text>
+      <g font-size="14" fill="#9AA7BD">
+        <text x="18" y="120">"challenges and future prospects"</text>
+        <text x="18" y="144">negative parallelism, rule of three</text>
+        <text x="18" y="168">signposting, generic positive endings</text>
+      </g>
+    </g>
+    <g transform="translate(48 336)">
+      <rect x="2" y="2" width="380" height="186" fill="#182233" stroke="#6FB7FF" stroke-width="4"/>
+      <rect x="18" y="18" width="64" height="64" fill="#6FB7FF"/>
+      <text x="50" y="63" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="38" fill="#101722">D</text>
+      <text x="98" y="44" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="20" fill="#F2EBDD">Lexical tics</text>
+      <text x="98" y="70" font-weight="600" font-size="13" letter-spacing="2" fill="#6FB7FF">4 PATTERNS</text>
+      <g font-size="14" fill="#9AA7BD">
+        <text x="18" y="120">overused AI vocabulary</text>
+        <text x="18" y="144">synonym cycling, false ranges</text>
+        <text x="18" y="168">hyphenated-pair overuse</text>
+      </g>
+    </g>
+    <g transform="translate(448 336)">
+      <rect x="2" y="2" width="380" height="186" fill="#182233" stroke="#FF9F5A" stroke-width="4"/>
+      <rect x="18" y="18" width="64" height="64" fill="#FF9F5A"/>
+      <text x="50" y="63" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="38" fill="#101722">E</text>
+      <text x="98" y="44" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="20" fill="#F2EBDD">Syntactic tics</text>
+      <text x="98" y="70" font-weight="600" font-size="13" letter-spacing="2" fill="#FF9F5A">2 PATTERNS</text>
+      <g font-size="14" fill="#9AA7BD">
+        <text x="18" y="120">copula avoidance</text>
+        <text x="18" y="144">passive voice and subjectless fragments</text>
+      </g>
+    </g>
+    <g transform="translate(848 336)">
+      <rect x="2" y="2" width="380" height="186" fill="#182233" stroke="#FF6B57" stroke-width="4"/>
+      <rect x="18" y="18" width="64" height="64" fill="#FF6B57"/>
+      <text x="50" y="63" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="38" fill="#101722">F</text>
+      <text x="98" y="44" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="20" fill="#F2EBDD">Formatting and artifacts</text>
+      <text x="98" y="70" font-weight="600" font-size="13" letter-spacing="2" fill="#FF6B57">11 PATTERNS</text>
+      <g font-size="14" fill="#9AA7BD">
+        <text x="18" y="120">dash overuse, boldface, emojis, title case</text>
+        <text x="18" y="144">chatbot artifacts, cutoff disclaimers</text>
+        <text x="18" y="168" fill="#FF6B57">chat-UI residue: always removed</text>
+      </g>
+    </g>
+  </g>
+</svg>

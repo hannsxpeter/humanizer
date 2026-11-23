@@ -22,7 +22,6 @@ TRACKED = subprocess.run(
     ["git", "ls-files"], capture_output=True, text=True, check=True
 ).stdout.splitlines()
 
-CANONICAL_ADAPTER = "GEMINI.md"
 LAYOUT_EXEMPT = {"README.md", "LICENSE", ".gitignore"}
 SPEC_KEYS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 WORDS = (
@@ -128,6 +127,8 @@ def check_versions(version):
         (readme, re.search(r"badge/version-(\d[\w.]*?)-\w+\)", TEXT[readme]), "README version badge"),
         (log, re.search(r"^## \[(\d[\w.]*)\]", TEXT[log], re.M), "latest CHANGELOG release"),
         (log, re.search(r"^\[(\d[\w.]*)\]: \S+", TEXT[log], re.M), "first CHANGELOG version link"),
+        ("package.json", re.search(r'^  "version": "(\d[\w.-]*)"', TEXT["package.json"], re.M),
+         "package.json version"),
     ]
     for path, match, label in sources:
         if not match:
@@ -227,9 +228,9 @@ def check_counts(counts):
 def check_tools():
     readme = TEXT["README.md"]
     badge = re.search(r"works%20with-(\d+)%20", readme)
-    section = re.search(r"^## Supported tools\n(.*?)(?=^## )", readme, re.M | re.S)
+    section = re.search(r"^## Works with your tools\n(.*?)(?=^## )", readme, re.M | re.S)
     if not badge or not section:
-        report("README.md", 1, "cannot find the tools badge or the Supported tools section")
+        report("README.md", 1, "cannot find the tools badge or the Works with your tools section")
         return 0
     rows = [l for l in section.group(1).splitlines()
             if l.startswith("|") and not re.match(r"^\|\s*(Tool\b|-)", l)]
@@ -240,30 +241,28 @@ def check_tools():
 
 
 def check_adapters():
-    adapters = sorted(
-        path for path, text in TEXT.items()
-        if path not in ("AGENTS.md", CANONICAL_ADAPTER)
-        and strip_frontmatter(text).lstrip().startswith("# humanizer (")
-    )
-    canonical = re.sub(r"\A# .*\n", "", strip_frontmatter(TEXT[CANONICAL_ADAPTER]))
-    shared = [normalize(p) for p in re.split(r"\n\s*\n", canonical) if p.strip()]
-    for path in adapters:
-        body = normalize(strip_frontmatter(TEXT[path]))
-        for paragraph in shared:
-            if paragraph not in body:
-                report(path, 1, f"lost this paragraph shared with {CANONICAL_ADAPTER}: '{paragraph[:70]}...'")
-    descriptions = {}
-    for path in adapters:
-        block = frontmatter(path)
-        if block is None:
+    """GEMINI.md imports AGENTS.md; every other adapter carries its body verbatim."""
+    def body(text):
+        return normalize(re.sub(r"\A# .*\n", "", strip_frontmatter(text).lstrip()))
+
+    count = 1
+    if "GEMINI.md" in TEXT:
+        count += 1
+        if not re.search(r"^@(\./)?AGENTS\.md\s*$", TEXT["GEMINI.md"], re.M):
+            report("GEMINI.md", 1, "must import AGENTS.md with an '@./AGENTS.md' line")
+    for path, text in sorted(TEXT.items()):
+        if path in ("AGENTS.md", "GEMINI.md"):
             continue
-        for offset, line in enumerate(block.splitlines(), 2):
+        if not strip_frontmatter(text).lstrip().startswith("# humanizer ("):
+            continue
+        count += 1
+        block = frontmatter(path)
+        for offset, line in enumerate((block or "").splitlines(), 2):
             if not re.match(r"^[A-Za-z][\w-]*:( .*)?$", line):
                 report(path, offset, f"frontmatter line is not 'key: value': {line}")
-        descriptions[path] = parse_frontmatter(block)[1].get("description")
-    if len(set(descriptions.values())) > 1:
-        report(sorted(descriptions)[0], 1, "adapter frontmatter descriptions differ: " + ", ".join(sorted(descriptions)))
-    return len(adapters) + 1
+        if body(text) != body(TEXT["AGENTS.md"]):
+            report(path, 1, "body differs from AGENTS.md; adapters carry it verbatim")
+    return count
 
 
 def check_references():
@@ -290,11 +289,14 @@ def check_layout():
     for offset, line in enumerate(block.group(1).splitlines()):
         if line.strip():
             listed[line.split()[0]] = start + offset
+    folders = [p for p in listed if p.endswith("/")]
     for path, line in listed.items():
-        if path not in TEXT:
+        exists = any(t.startswith(path) for t in TRACKED) if path in folders else path in TRACKED
+        if not exists:
             report("README.md", line, f"Layout lists {path}, which does not exist")
     for path in TRACKED:
-        if path not in listed and path not in LAYOUT_EXEMPT:
+        covered = path in listed or any(path.startswith(f) for f in folders)
+        if not covered and path not in LAYOUT_EXEMPT:
             report("README.md", start, f"Layout does not list {path}")
 
 
@@ -334,7 +336,7 @@ def check_style():
             if line.startswith("```"):
                 in_code = not in_code
                 continue
-            if in_code or line.startswith(("|", "![", "[![")):
+            if in_code or line.lstrip().startswith(("|", "![", "[![", "<")):
                 continue
             if len(line) > 80:
                 report(path, number_, f"{len(line)} columns; wrap prose at 80")

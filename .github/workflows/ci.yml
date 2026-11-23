@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Check that the docs agree with each other
+        run: python3 .github/scripts/check_drift.py
+      - name: Smoke test the installer
+        run: |
+          export HOME="$(mktemp -d)"
+          mkdir -p "$HOME/.claude"
+          node bin/humanizer.js
+          test -f "$HOME/.agents/skills/humanizer/SKILL.md"
+          test -f "$HOME/.claude/skills/humanizer/references/tell-patterns.md"
+          node bin/humanizer.js --uninstall
+          test ! -e "$HOME/.agents/skills/humanizer"
+          test ! -e "$HOME/.claude/skills/humanizer"
+      - name: Check the package contents
+        run: npm pack --dry-run

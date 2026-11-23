@@ -1,0 +1,53 @@
+{
+  "name": "@hxp-tools/humanizer",
+  "version": "2.0.0",
+  "description": "Strip the tells. Keep the facts. Sound like you. A writing skill for AI coding tools.",
+  "keywords": [
+    "agent-skills",
+    "ai-agents",
+    "ai-writing",
+    "humanizer",
+    "deslop",
+    "ai-slop",
+    "writing",
+    "prose-editing",
+    "voice",
+    "claude-code",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "opencode"
+  ],
+  "homepage": "https://github.com/hannsxpeter/humanizer#readme",
+  "bugs": {
+    "url": "https://github.com/hannsxpeter/humanizer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hannsxpeter/humanizer.git"
+  },
+  "license": "MIT",
+  "author": "hannsxpeter",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "humanizer": "bin/humanizer.js"
+  },
+  "files": [
+    "bin",
+    "SKILL.md",
+    "references",
+    "AGENTS.md",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "check": "python3 .github/scripts/check_drift.py"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

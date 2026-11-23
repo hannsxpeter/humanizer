@@ -15,7 +15,7 @@ description: >-
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 metadata:
-  version: 1.3.1
+  version: 2.0.0
 ---
 
 # Humanizer

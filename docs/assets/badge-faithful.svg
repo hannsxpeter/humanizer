@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" width="320" height="96" role="img" aria-labelledby="t">
+  <title id="t">Achievement: Faithful. The meaning check passed and nothing was invented.</title>
+  <rect width="320" height="96" fill="#101722"/>
+  <rect x="2" y="2" width="316" height="92" fill="#182233" stroke="#FF6B57" stroke-width="4"/>
+  <rect x="14" y="14" width="68" height="68" fill="#FF6B57"/>
+  <rect x="28" y="34" width="40" height="9" fill="#101722"/>
+  <rect x="28" y="53" width="40" height="9" fill="#101722"/>
+  <text x="98" y="38" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="28" fill="#F2EBDD">Faithful</text>
+  <text x="98" y="60" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#9AA7BD">Meaning check passed.</text>
+  <text x="98" y="78" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#9AA7BD">Nothing invented.</text>
+</svg>

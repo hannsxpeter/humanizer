@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 520" width="1280" height="520" role="img" aria-labelledby="t d">
+  <title id="t">The humanizer quest map</title>
+  <desc id="d">Six stages in order: voice, density, hygiene, revoice, tells, audit. Stance mode is an opt-in power-up. The meaning check is the final boss: no new facts, names, numbers, or causes.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1D2A40" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="520" fill="#101722"/>
+  <rect width="1280" height="520" fill="url(#grid)"/>
+  <text x="48" y="58" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="34" fill="#F2EBDD">The quest map</text>
+  <text x="48" y="88" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#9AA7BD">Every run plays these stages in order. Revoice runs only when a voice was found.</text>
+  <path d="M100 250H1060" stroke="#2B3A55" stroke-width="10" stroke-dasharray="4 10"/>
+  <path d="M100 250H950" stroke="#4FD1A1" stroke-width="6"/>
+  <g font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
+    <path d="M185 182V238" stroke="#FF9F5A" stroke-width="3" stroke-dasharray="4 6"/>
+    <path d="M185 150L203 168L185 186L167 168Z" fill="#2A2218" stroke="#FF9F5A" stroke-width="4"/>
+    <text x="185" y="122" font-weight="600" font-size="14" letter-spacing="3" fill="#FF9F5A">POWER-UP: STANCE</text>
+    <text x="185" y="140" font-size="13" fill="#9AA7BD">opt-in. Opinion, never facts.</text>
+    <g fill="#182233" stroke="#4FD1A1" stroke-width="4">
+      <rect x="68" y="218" width="64" height="64"/>
+      <rect x="238" y="218" width="64" height="64"/>
+      <rect x="408" y="218" width="64" height="64"/>
+      <rect x="578" y="218" width="64" height="64"/>
+      <rect x="748" y="218" width="64" height="64"/>
+      <rect x="918" y="218" width="64" height="64"/>
+    </g>
+    <g font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="34" fill="#4FD1A1">
+      <text x="100" y="262">1</text><text x="270" y="262">2</text><text x="440" y="262">3</text><text x="610" y="262">4</text><text x="780" y="262">5</text><text x="950" y="262">6</text>
+    </g>
+    <g font-weight="600" font-size="20" letter-spacing="2" fill="#F2EBDD">
+      <text x="100" y="324">VOICE</text><text x="270" y="324">DENSITY</text><text x="440" y="324">HYGIENE</text><text x="610" y="324">REVOICE</text><text x="780" y="324">TELLS</text><text x="950" y="324">AUDIT</text>
+    </g>
+    <g font-size="15" fill="#4FD1A1">
+      <text x="100" y="350">sample or VOICE.md</text><text x="270" y="350">light, standard, full</text><text x="440" y="350">invisible Unicode</text><text x="610" y="350">voice mode only</text><text x="780" y="350">32 patterns</text><text x="950" y="350">veto power</text>
+    </g>
+    <g font-size="14" fill="#9AA7BD">
+      <text x="100" y="378">else generic mode</text>
+      <text x="270" y="378">effort fits evidence</text>
+      <text x="440" y="378">joiners kept</text>
+      <text x="610" y="378">cadence, not copies</text>
+      <text x="780" y="378">fix the thought</text>
+      <text x="950" y="378">undo overcorrection</text>
+    </g>
+    <path d="M1135 168L1197 190V250C1197 288 1169 316 1135 330C1101 316 1073 288 1073 250V190Z" fill="#2A1A1E" stroke="#FF6B57" stroke-width="5"/>
+    <text x="1135" y="244" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="42" fill="#FF6B57">7</text>
+    <text x="1135" y="278" font-weight="600" font-size="16" letter-spacing="2" fill="#F2EBDD">MEANING</text>
+    <text x="1135" y="146" font-weight="600" font-size="14" letter-spacing="3" fill="#FF6B57">FINAL BOSS</text>
+    <text x="1135" y="358" font-size="15" fill="#FF6B57">no new facts, names,</text>
+    <text x="1135" y="378" font-size="14" fill="#9AA7BD">numbers, or causes</text>
+  </g>
+  <g font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#9AA7BD">
+    <rect x="48" y="450" width="14" height="14" fill="none" stroke="#4FD1A1" stroke-width="3"/>
+    <text x="72" y="462">stage</text>
+    <path d="M150 449L158 457L150 465L142 457Z" fill="none" stroke="#FF9F5A" stroke-width="3"/>
+    <text x="168" y="462">power-up, on request only</text>
+    <rect x="372" y="450" width="14" height="14" fill="none" stroke="#FF6B57" stroke-width="3"/>
+    <text x="396" y="462">boss: the meaning check closes every run</text>
+    <text x="1232" y="462" text-anchor="end">one report: draft, changes, left alone, meaning</text>
+  </g>
+</svg>

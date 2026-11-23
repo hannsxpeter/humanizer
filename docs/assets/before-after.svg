@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Before and after: worked Example 1</title>
+  <desc id="d">Left, the AI-sounding source paragraph with its tells highlighted. Right, the humanized draft, 65 words down to 49, with no facts, numbers, or examples added.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1D2A40" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="500" fill="#101722"/>
+  <rect width="1280" height="500" fill="url(#grid)"/>
+  <text x="48" y="58" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-weight="600" font-size="34" fill="#F2EBDD">Before and after</text>
+  <text x="48" y="88" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#9AA7BD">Worked Example 1 from references/examples.md. Generic mode, full pass.</text>
+
+  <rect x="48" y="116" width="576" height="336" fill="#182233" stroke="#FF6B57" stroke-width="4"/>
+  <text x="76" y="152" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="14" letter-spacing="3" fill="#FF6B57">BEFORE: 65 WORDS</text>
+  <g font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="18" fill="#9AA7BD">
+    <text x="76" y="190">In today's <tspan fill="#FF6B57">rapidly evolving digital landscape</tspan>, <tspan fill="#FF6B57">it is</tspan></text>
+    <text x="76" y="217"><tspan fill="#FF6B57">important to note</tspan> that customer feedback stands as a</text>
+    <text x="76" y="244"><tspan fill="#FF6B57">pivotal cornerstone</tspan> of product success. Companies that</text>
+    <text x="76" y="271"><tspan fill="#FF6B57">delve</tspan> into the <tspan fill="#FF6B57">rich tapestry</tspan> of user sentiment are</text>
+    <text x="76" y="298">well-positioned to <tspan fill="#FF6B57">unlock growth, foster loyalty, and</tspan></text>
+    <text x="76" y="325"><tspan fill="#FF6B57">drive engagement</tspan>. <tspan fill="#FF6B57">Moreover, leveraging robust</tspan> feedback</text>
+    <text x="76" y="352">mechanisms <tspan fill="#FF6B57">underscores</tspan> a commitment to excellence.</text>
+    <text x="76" y="379"><tspan fill="#FF6B57">Ultimately</tspan>, listening to customers represents an</text>
+    <text x="76" y="406"><tspan fill="#FF6B57">exciting opportunity</tspan> for businesses of all sizes.</text>
+  </g>
+  <text x="76" y="436" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#9AA7BD">Flagged: patterns 1, 8, 12, 13, and 16</text>
+
+  <path d="M632 284H648" stroke="#4FD1A1" stroke-width="4"/>
+  <path d="M644 276L652 284L644 292" fill="none" stroke="#4FD1A1" stroke-width="4"/>
+
+  <rect x="656" y="116" width="576" height="336" fill="#182233" stroke="#4FD1A1" stroke-width="4"/>
+  <text x="684" y="152" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="14" letter-spacing="3" fill="#4FD1A1">AFTER: 49 WORDS</text>
+  <g font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="18" fill="#F2EBDD">
+    <text x="684" y="190">Customer feedback is central to whether a product</text>
+    <text x="684" y="217">succeeds. Companies that pay attention to what their</text>
+    <text x="684" y="244">users say are better placed to grow and to keep the</text>
+    <text x="684" y="271">customers they have. Taking the trouble to collect it</text>
+    <text x="684" y="298">well shows that a company cares about quality. Size</text>
+    <text x="684" y="325">does not change that.</text>
+  </g>
+  <text x="684" y="408" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#4FD1A1">Meaning check: no facts, numbers, or examples added.</text>
+  <text x="684" y="436" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#9AA7BD">Left alone: the generality. The source never says why.</text>
+</svg>
